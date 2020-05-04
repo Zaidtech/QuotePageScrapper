@@ -4,4 +4,3 @@ class QuoteLocator:
     CONTENT = 'span.text'
     TAGS = 'div.tags a.tag '
 
-
