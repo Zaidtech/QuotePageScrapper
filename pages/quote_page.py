@@ -1,5 +1,6 @@
 from typing import List
-form selenium.common.exceptions import NoSuchElementException
+
+from selenium.common.exceptions import NoSuchElementException
 from selenium.webdriver.support.ui import Select
 
 
@@ -11,7 +12,7 @@ class QuotePage:
         self.browser = browser
 
     @property
-    def quotes(self) -> List[QuoteParser] :
+    def quotes(self) -> List[QuoteParser]:
         #  created an object of a quote from a complete page and passed into    
         return [
             QuoteParser(e)
@@ -51,7 +52,7 @@ class QuotePage:
         self.author_dropdown.select_by_visible_text(author_name)
 
     
-    def search_for_quotes(self, author_name:str, tag_name:str) -> List[QuoteParser]
+    def search_for_quotes(self, author_name:str, tag_name:str) -> List[QuoteParser]:
         self.select_author(author_name)
         try:
             self.select_tag(tag_name)
@@ -59,8 +60,8 @@ class QuotePage:
             raise InavalidForAuthorError(
             f'Author {author_name} does not have any option with the {tag_name} tag'
         )    
-    self.search_button.click()
-    return self.quotes
+        self.search_button.click()
+        return self.quotes
 
 class InavalidForAuthorError(ValueError):
     pass   
