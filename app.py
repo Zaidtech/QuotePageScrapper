@@ -8,5 +8,5 @@ chrome = webdriver.Chrome(executable_path = PATH)
 chrome.get('http://quotes.toscrape.com/search.aspx')
 page = QuotePage(chrome)
 
-for quote in page.quotes:
-  print(quote)
+author  = input("enter the author name : ")
+page.select_author(author)
